@@ -1,4 +1,4 @@
-package com.example.blog;
+package by.maksim;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.example.blog.controllers;
+package by.maksim.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
