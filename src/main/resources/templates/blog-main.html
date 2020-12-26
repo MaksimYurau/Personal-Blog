@@ -20,11 +20,16 @@
 </div>
 <!-- Footer -->
 <footer class="text-muted">
-    <div class="container">
-        <p class="float-right">
-            <a href="#">Back to top</a>
-        </p>
+    <p class="float-right">
+        <a href="#">Back to top</a>
+    </p>
+    <div class="container mt-5">
         <h1>Блог сайта</h1>
+        <div th:each="el : ${posts}" class="alert alert-info mt-2">
+            <h3 th:text="${el.title}"></h3>
+            <p th:text="${el.anons}"></p>
+            <a th:href="'/blog/' + ${el.id}"> Детальнее </a>
+        </div>
         <p>Album example is ©Bootstrap, but please download and customize it for yourself! </p>
         <p>New to Bootstrap?<a href="https://getbootstrap.com/"> Visit the homepage </a></p>
     </div>
