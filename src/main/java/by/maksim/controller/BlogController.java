@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -29,8 +30,8 @@ public class BlogController {
     }
 
     @PostMapping("/blog/add")
-    public String blogAddPost(@RequestParam String title, @RequestParam String anons,
-                              @RequestParam String full_text, Model model) {
+    public String blogAddPost(@Valid @RequestParam String title, @Valid @RequestParam String anons,
+                              @Valid @RequestParam String full_text, Model model) {
         Post post = new Post(title, anons, full_text);
         postRepository.save(post);
         return "redirect:/blog";
@@ -63,8 +64,8 @@ public class BlogController {
     }
 
     @PostMapping("/blog/{id}/edit")
-    public String blogPostUpdate(@PathVariable (value = "id") long id, @RequestParam String title,
-                                 @RequestParam String anons, @RequestParam String full_text,
+    public String blogPostUpdate(@PathVariable (value = "id") long id, @Valid @RequestParam String title,
+                                 @Valid @RequestParam String anons, @Valid @RequestParam String full_text,
                                  Model model) {
         Post post = postRepository.findById(id).orElseThrow();
         post.setTitle(title);
