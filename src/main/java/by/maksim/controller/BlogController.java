@@ -2,6 +2,7 @@ package by.maksim.controller;
 
 import by.maksim.domain.Post;
 import by.maksim.repository.PostRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @Controller
+@Slf4j
 public class BlogController {
 
     @Autowired
@@ -34,6 +36,7 @@ public class BlogController {
                               @Valid @RequestParam String full_text, Model model) {
         Post post = new Post(title, anons, full_text);
         postRepository.save(post);
+        log.info("Post was successfully added!");
         return "redirect:/blog";
     }
 
@@ -60,6 +63,7 @@ public class BlogController {
         ArrayList<Post> res = new ArrayList<>();
         post.ifPresent(res::add);
         model.addAttribute("post", res);
+        log.info("Post was successfully updated.");
         return "blog-edit";
     }
 
@@ -79,6 +83,7 @@ public class BlogController {
     public String blogPostDelete(@PathVariable (value = "id") long id, Model model) {
         Post post = postRepository.findById(id).orElseThrow();
         postRepository.delete(post);
+        log.info("Post was successfully deleted.");
         return "redirect:/blog";
     }
 }
