@@ -38,6 +38,7 @@ public class Post {
     private String full_text;
 
     private int views;
+    private Long userId;
 
     public Post(String title, String anons, String full_text) {
         this.title = title;

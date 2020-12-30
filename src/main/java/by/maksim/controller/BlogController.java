@@ -36,7 +36,7 @@ public class BlogController {
                               @Valid @RequestParam String full_text, Model model) {
         Post post = new Post(title, anons, full_text);
         postRepository.save(post);
-        log.info("Post was successfully added!");
+        log.info("Post was successfully added.");
         return "redirect:/blog";
     }
 
