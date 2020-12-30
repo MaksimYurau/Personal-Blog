@@ -39,13 +39,7 @@ public class User {
     private String name;
     private boolean active;
 
-    @NotNull(message = "User's googleName cannot be null")
-    @NotEmpty(message = "User's googleName cannot be empty")
-    @NotBlank(message = "User's googleName cannot be empty or null")
     private String googleName;
 
-    @NotNull(message = "User's googleUsername cannot be null")
-    @NotEmpty(message = "User's googleUsername cannot be empty")
-    @NotBlank(message = "User's googleUsername cannot be empty or null")
     private String googleUsername;
 }
