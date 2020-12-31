@@ -39,7 +39,14 @@ public class User {
     private String name;
     private boolean active;
 
-    private String googleName;
+//    private String googleName;
+//
+//    private String googleUsername;
 
-    private String googleUsername;
+    public User(@NotNull(message = "User's username cannot be null") @NotEmpty(message = "User's username cannot be empty") @NotBlank(message = "User's username cannot be empty or null") String username, @NotNull(message = "User's password cannot be null") @NotEmpty(message = "User's password cannot be empty") @NotBlank(message = "User's password cannot be empty or null") String password, @NotNull(message = "User's name cannot be null") @NotEmpty(message = "User's name cannot be empty") @NotBlank(message = "User's name cannot be empty or null") String name, boolean active) {
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.active = active;
+    }
 }
