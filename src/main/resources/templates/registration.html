@@ -1,27 +1,237 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <title>Регистрация</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<section class="container">
-    <div class="mx-auto border my-5 py-3 px-3 form">
-        <form action="/registration" method="post">
-            <div class="form-group">
-                <label for="username">Имя пользователя</label>
-                <input class="form-control" id="username" type="text" name="username">
-            </div>
-            <div class="form-group">
-                <label for="password">Пароль</label>
-                <input class="form-control" id="password" type="text" name="password">
-            </div>
-            <div class="form-group">
-                <label for="name">Имя</label>
-                <input class="form-control" id="name" type="password" name="name">
-            </div>
-            <input class="button" type="submit" value="Регистрация"/>
-        </form>
+<div th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <h5 class="my-0 mr-md-auto font-weight-normal">Blog</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="/">Main page</a>
+            <a class="p-2 text-dark" href="/blog">Blog</a>
+            <a class="p-2 text-dark" href="/blog/add">Add new post</a>
+            <a class="p-2 text-dark" href="/contact">Contact</a>
+        </nav>
+        <a class="btn btn-outline-primary" href="#">Sign up</a>
     </div>
-</section>
+</div>
+<!-- Footer -->
+<footer class="text-muted">
+    <div class="container">
+        <p class="float-right">
+            <a href="#">Back to top</a>
+        </p>
+        <style>
+            body{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            * {box-sizing: border-box}
+            input[type=text], input[type=password] {
+                width: 100%;
+                font-size: 28px;
+                padding: 15px;
+                margin: 5px 0 22px 0;
+                display: inline-block;
+                border: none;
+                background: #f1f1f1;
+            }
+            label{
+                font-size: 15px;
+            }
+            input[type=text]:focus, input[type=password]:focus {
+                background-color: #ddd;
+                outline: none;
+            }
+            hr {
+                border: 1px solid #f1f1f1;
+                margin-bottom: 25px;
+            }
+            button {
+                font-size: 18px;
+                font-weight: bold;
+                background-color: rgb(10, 119, 13);
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                opacity: 0.9;
+            }
+            button:hover {
+                opacity:1;
+            }
+            .cancel {
+                padding: 14px 20px;
+                background-color: #ff3d2f;
+            }
+            .formContainer {
+                padding: 16px;
+            }
+            .formContainer p{
+                font-size: 28px;
+            }
+        </style>
+        <form action="/registration" method="post">
+            <div class="formContainer">
+                <h1>Sign Up Form</h1>
+                <hr>
+                <label for="username"><b>Username</b></label>
+                <input type="text" id="username" placeholder="Enter Username" name="username" required>
+                <label for="password"><b>Password</b></label>
+                <input type="password" id="password" placeholder="Enter Password" name="password" required>
+                <label for="name"><b>Name</b></label>
+                <input type="text" id="name" placeholder="Enter Name" name="name"
+                       required>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember" style="marginbottom: 15px"> Remember me
+                </label>
+                <p>By creating an account you agree to our <a href="#"
+                                                              style="color:dodgerblue">Terms & Privacy</a><p>
+                <div>
+                    <button type="button" class="cancel">Cancel</button>
+                    <button type="submit" class="signup">Sign Up</button>
+                </div>
+            </div>
+        </form>
+        <p>Album example is ©Bootstrap, but please download and customize it for yourself! </p>
+        <p>New to Bootstrap?<a href="https://getbootstrap.com/"> Visit the homepage </a></p>
+    </div>
+</footer>
+<!-- Footer -->
+<footer class="page-footer font-small indigo">
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-3 mx-auto">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Features</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a class="text-muted" href="#">Cool stuff</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="#">Random feature</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="#">Team feature</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="#">Stuff for developers</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="#">Another one</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="#">Last time</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-3 mx-auto">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Resources</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a class="text-muted" href="#">Resource</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="#">Resource name</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="#">Another resource</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="#">Final resource</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-3 mx-auto">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">About</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a class="text-muted" href="#">Team</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="#">Locations</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="#">Privacy</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="#">Terms</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-3 mx-auto">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a>LinkedIn:</a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/maksim-yurau/">https://www.linkedin.com/in/maksim-yurau/</a>
+                    </li>
+                    <li>
+                        <a>GitHub:</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/MaksimYurau">https://github.com/MaksimYurau</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="https://blog.com/"> Blog.com</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 </body>
 </html>
