@@ -63,7 +63,6 @@ public class BlogController {
         ArrayList<Post> res = new ArrayList<>();
         post.ifPresent(res::add);
         model.addAttribute("post", res);
-        log.info("Post was successfully updated.");
         return "blog-edit";
     }
 
@@ -76,6 +75,7 @@ public class BlogController {
         post.setAnons(anons);
         post.setFull_text(full_text);
         postRepository.save(post);
+        log.info("Post was successfully updated.");
         return "redirect:/blog";
     }
 
