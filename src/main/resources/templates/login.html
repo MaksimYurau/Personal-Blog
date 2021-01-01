@@ -76,7 +76,7 @@
                 font-size: 28px;
             }
         </style>
-        <form action="/authorization" method="post">
+        <form action="/login" method="post">
             <div class="formContainer">
                 <h1>Sign In Form</h1>
                 <hr>
@@ -84,9 +84,6 @@
                 <input type="text" id="username" placeholder="Enter Username" name="username" required>
                 <label for="password"><b>Password</b></label>
                 <input type="password" id="password" placeholder="Enter Password" name="password" required>
-                <label for="name"><b>Name</b></label>
-                <input type="text" id="name" placeholder="Enter Name" name="name"
-                       required>
                 <label>
                     <input type="checkbox" checked="checked" name="remember" style="marginbottom: 15px"> Remember me
                 </label>
@@ -94,7 +91,7 @@
                                                               style="color:dodgerblue">Terms & Privacy</a><p>
                 <div>
                     <!-- <button type="submit" href="/" class="cancel">Cancel</button> -->
-                    <button type="submit" class="signup">Sign Up</button>
+                    <button type="submit" class="signin">Sign In</button>
                 </div>
             </div>
         </form>

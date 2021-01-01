@@ -29,6 +29,6 @@ public class RegistrationController {
         user.setActive(true);
         userRepository.save(user);
         log.info("User was registered successfully.");
-        return "redirect:/authorization";
+        return "redirect:/login";
     }
 }
