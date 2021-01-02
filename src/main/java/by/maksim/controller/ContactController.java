@@ -1,40 +1,39 @@
-//package by.maksim.controller;
-//
-//import by.maksim.domain.Contact;
-//import by.maksim.service.ContactService;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.beans.factory.annotation.Qualifier;
-//import org.springframework.mail.javamail.JavaMailSender;
-//import org.springframework.stereotype.Controller;
-//import org.springframework.ui.ModelMap;
-//import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.ModelAttribute;
-//import org.springframework.web.bind.annotation.PostMapping;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//
-//@Controller
-//@RequestMapping("/contact")
-//public class ContactController {
-//
-//    @Autowired
-//    private ContactService contactService;
-//
-//    @Qualifier("getJavaMailSender")
-//    @Autowired
-//    private JavaMailSender javaMailSender;
-//
-//    @GetMapping
-//    public String contact(ModelMap modelMap) {
-//        modelMap.put("contact", new Contact());
-//        return "contact";
-//    }
-//
-//    @PostMapping(value = "send")
-//    public String send(@ModelAttribute("contact") Contact contact, ModelMap modelMap) throws Exception {
-//        String content = "Name: " + contact.getName();
-//        content += "<br>Phone: " + contact.getPhone();
-//        content += "<br>Address: " + contact.getAddress();
-//        contactService.send(contact.getEmail(), "2004softwaredeveloper@gmail.com", contact.getSubject(), content);
-//        return "contact";
-//    }
-//}
+package by.maksim.controller;
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+@Slf4j
+@RequestMapping("/contact")
+public class ContactController {
+
+    @Autowired
+    private JavaMailSender javaMailSender;
+
+    @GetMapping
+    public String showForm() {
+        return "contact";
+    }
+
+    @PostMapping
+    public String sendMail(@RequestParam (value = "from") String from,
+                           @RequestParam(value = "subject") String subject,
+                           @RequestParam(value = "content") String content) {
+        SimpleMailMessage msg = new SimpleMailMessage();
+        msg.setFrom(from);
+        msg.setTo("@gmail.com");
+        msg.setSubject(subject);
+        msg.setText(content);
+        javaMailSender.send(msg);
+        log.info("Email sent successful!");
+        return "redirect:/";
+    }
+}
