@@ -18,11 +18,11 @@ public class SwaggerConfiguration {
     public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).select()
                 .apis(Predicates.not(RequestHandlerSelectors.basePackage("org.springframework.boot"))).build();
-    }
+   }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder().title("Blog Profile API")
-                .description("This API can be used to get profile level actions and information for a blog")
+                .description("This API can be used to get profile level actions and information for a Blog")
                 .version("V1.0").build();
     }
 }
