@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
-    <title>Блог</title>
+    <title>Локация</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -12,7 +12,7 @@
         <h5 class="my-0 mr-md-auto font-weight-normal">Blog</h5>
         <nav class="my-2 my-md-0 mr-md-3">
             <a class="p-2 text-dark" href="/">Main page</a>
-            <a class="p-2 text-dark" href="/about">About the author of the blog</a>
+            <a class="p-2 text-dark" href="/blog">Blog</a>
             <a class="p-2 text-dark" href="/blog/add">Add new post</a>
             <a class="p-2 text-dark" href="/contact">Contact</a>
         </nav>
@@ -22,16 +22,12 @@
 </div>
 <!-- Footer -->
 <footer class="text-muted">
-    <p class="float-right">
-        <a href="#">Back to top</a>
-    </p>
-    <div class="container mt-5">
-        <h1>Блог сайта</h1>
-        <div th:each="el : ${posts}" class="alert alert-info mt-2">
-            <h3 th:text="${el.title}"></h3>
-            <p th:text="${el.anons}"></p>
-            <a th:href="'/blog/' + ${el.id}" class="btn btn-warning"> Детальнее </a>
-        </div>
+    <div class="container">
+        <p class="float-right">
+            <a href="#">Back to top</a>
+        </p>
+        <h1>Про локацию</h1>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d75252.67256821044!2d27.52332918302464!3d53.88472079817119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcfd35b1e6ad3%3A0xb61b853ddb570d9!2z0JzQuNC90YHQug!5e0!3m2!1sru!2sby!4v1609686965975!5m2!1sru!2sby" width="1000" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         <p>Album example is ©Bootstrap, but please download and customize it for yourself! </p>
         <p>New to Bootstrap?<a href="https://getbootstrap.com/"> Visit the homepage </a></p>
     </div>
@@ -137,7 +133,7 @@
 
                 <ul class="list-unstyled">
                     <li>
-                        <a>Linkedin:</a>
+                        <a>LinkedIn:</a>
                     </li>
                     <li>
                         <a href="https://www.linkedin.com/in/maksim-yurau/">https://www.linkedin.com/in/maksim-yurau/</a>
