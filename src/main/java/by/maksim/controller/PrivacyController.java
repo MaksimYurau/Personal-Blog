@@ -10,4 +10,9 @@ public class PrivacyController {
     public String privacy() {
         return "privacy";
     }
+
+    @GetMapping("/terms")
+    public String terms() {
+        return "terms";
+    }
 }
