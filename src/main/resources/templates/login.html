@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <html lang="en">
 <head>
     <title>Авторизация</title>
@@ -92,6 +93,7 @@
                                                               style="color:dodgerblue">Terms & Privacy</a><p>
                 <div>
                     <!-- <button type="submit" href="/" class="cancel">Cancel</button> -->
+                <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
                     <button type="submit" class="signin">Sign In</button>
                 </div>
             </div>

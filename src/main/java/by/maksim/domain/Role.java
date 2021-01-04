@@ -1,12 +1,5 @@
-//package by.maksim.domain;
-//
-//import org.springframework.security.core.GrantedAuthority;
-//
-//public enum Role implements GrantedAuthority {
-//    USER;
-//
-//    @Override
-//    public String getAuthority() {
-//        return name();
-//    }
-//}
+package by.maksim.domain;
+
+public enum Role {
+    USER;
+}

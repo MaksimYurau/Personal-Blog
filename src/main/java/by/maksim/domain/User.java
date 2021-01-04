@@ -11,13 +11,13 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.Set;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "users")
+@Table(name = "usr")
 @ApiModel(description = "User Model")
 public class User implements Serializable {
 
@@ -49,6 +49,11 @@ public class User implements Serializable {
     @ApiModelProperty(notes = "Name of the User", name = "name", required = true, value = "Max")
     private String name;
     private boolean active;
+
+    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
+    @Enumerated(EnumType.STRING)
+    private Set<Role> roles;
 
 //    private String googleName;
 //
