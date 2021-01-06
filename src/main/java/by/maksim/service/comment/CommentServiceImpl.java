@@ -17,16 +17,16 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public void addComment(Comment comment) {
-
+        commentRepository.save(comment);
     }
 
     @Override
     public List<Comment> showAllCommentsByPostId(long id) {
-        return null;
+        return commentRepository.findAllByPostId(id);
     }
 
     @Override
     public void removeComment(long id) {
-
+        commentRepository.deleteById(id);
     }
 }
