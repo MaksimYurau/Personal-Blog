@@ -16,7 +16,7 @@ class PostTests {
     private PostRepository postRepository;
 
     @Test
-    public void testAddPost() {
+    public void addPostTest() {
         Post post = new Post("title", "anons", "full_text");
         postRepository.save(post);
     }
