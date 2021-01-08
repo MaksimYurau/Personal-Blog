@@ -31,14 +31,14 @@ public class BlogController {
         return "blog-add";
     }
 
-    @PostMapping("/blog/add")
-    public String blogAddPost(@Valid @RequestParam String title, @Valid @RequestParam String anons,
-                              @Valid @RequestParam String full_text, Model model) {
-        Post post = new Post(title, anons, full_text);
-        postRepository.save(post);
-        log.info("Post was successfully added.");
-        return "redirect:/blog";
-    }
+//    @PostMapping("/blog/add")
+//    public String blogAddPost(@Valid @RequestParam String title, @Valid @RequestParam String anons,
+//                              @Valid @RequestParam String full_text, Model model) {
+//        Post post = new Post(title, anons, full_text);
+//        postRepository.save(post);
+//        log.info("Post was successfully added.");
+//        return "redirect:/blog";
+//    }
 
     @GetMapping("/blog/{id}")
     public String blogDetails(@PathVariable (value = "id") long id, Model model) {
