@@ -33,7 +33,7 @@
             <p> <b>Просмотры:</b> <span th:text="${el.views}"></span></p>
             <a th:href="'/blog/' + ${el.id} + '/edit'" class="btn btn-warning">Редактировать</a>
             <form th:action="'/blog/' + ${el.id} + '/remove'" method="post">
-                <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+<!--                <input type="hidden" name="_csrf" value="{{_csrf.token}}" />-->
                 <button class="btn btn-warning" type="submit">Удалить</button>
                 <form>
         </div>
