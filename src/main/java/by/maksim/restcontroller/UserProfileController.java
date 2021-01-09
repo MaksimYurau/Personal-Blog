@@ -39,18 +39,6 @@ public class UserProfileController {
         return users;
     }
 
-//    @ApiOperation(value = "Fetch User by Name", response = User.class)
-//    @GetMapping(value = "/fetch/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public List<User> fetchEmployeeByName(@ApiParam(value = "User Name") @PathVariable(value = "name") String name) {
-//        return (List<User>) users.stream().filter(x -> x.getName().equalsIgnoreCase(name)).findFirst().get();
-//    }
-
-//    @ApiOperation(value = "Get User By Department", response = User.class)
-//    @GetMapping(value = "/fetch/{department}")
-//    public List<User> fetchUserByDepartment(@ApiParam(value = "Department Name", required = true) @PathVariable(value = "department") String department) {
-//        return users.stream().filter(x -> x.getDepartment().equalsIgnoreCase(department)).collect(Collectors.toList());
-//    }
-
     @ApiOperation(value = "Insert User Record", response = User.class)
     @PostMapping
     public User insertUser(@ApiParam(value = "User") @RequestBody User user) {

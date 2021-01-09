@@ -62,17 +62,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/configuration/security",
                         "/swagger-ui.html",
                         "/webjars/**");
-
-//        @Bean
-//        @Override
-//        public UserDetailsService userDetailsService() {
-//                UserDetails user =
-//                        User.withDefaultPasswordEncoder()
-//                                .username("user")
-//                                .password("password")
-//                                .build();
-//
-//                return new InMemoryUserDetailsManager(user);
-//        }
         }
 }

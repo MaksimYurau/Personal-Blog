@@ -19,9 +19,6 @@ public class RegistrationController {
     @Autowired
     private UserRepository userRepository;
 
-//    @Autowired
-//    private UserServiceImpl userService;
-
     @GetMapping("/registration")
     public String registration() {
         return "registration";
