@@ -11,4 +11,4 @@
 
 ## Launching project:
 
-Go to BlogApplication.java and Run "BlogApplication" OR Go to Terminal -> cd target -> java -jar -blog.0.0.1-SNAPSHOT.jar.
+Go to BlogApplication.java and Run "BlogApplication" OR Go to Terminal -> cd target -> java -jar blog-0.0.1-SNAPSHOT.jar.
