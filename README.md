@@ -7,7 +7,7 @@
 
 1. Go to Database -> "+" -> Data Source -> PostgreSQL -> and substitute your values in user and password.
 2. Go to application.properties and substitute your values in spring.datasource.username = ?, spring.datasource.password = ?, spring.mail.username = ?, spring.mail.password = ?.
-3. Go to ContactController.java and substitute your values in msg.setTo("?").
+3. Go to ContactServiceImpl.java and substitute your values in msg.setTo("?").
 
 ## Launching project:
 
