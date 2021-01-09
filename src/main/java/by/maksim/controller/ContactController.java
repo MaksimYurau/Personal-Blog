@@ -1,5 +1,6 @@
 package by.maksim.controller;
 
+import by.maksim.service.contact.ContactServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ContactController {
 
     @Autowired
-    private JavaMailSender javaMailSender;
+    private ContactServiceImpl contactService;
 
     @GetMapping
     public String showForm() {
@@ -27,13 +28,6 @@ public class ContactController {
     public String sendMail(@RequestParam (value = "from") String from,
                            @RequestParam(value = "subject") String subject,
                            @RequestParam(value = "content") String content) {
-        SimpleMailMessage msg = new SimpleMailMessage();
-        msg.setFrom(from);
-        msg.setTo("@gmail.com");
-        msg.setSubject(subject);
-        msg.setText(content);
-        javaMailSender.send(msg);
-        log.info("Email sent successful!");
-        return "redirect:/";
+        return contactService.sendEmail(from, subject, content);
     }
 }
